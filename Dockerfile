@@ -44,41 +44,19 @@ WORKDIR $HOME/opencv-3.1.0/
 RUN mkdir $HOME/opencv-3.1.0/build
 
 RUN	/bin/bash $HOME/build_opencv.sh
-RUN rm -rf $HOME/build_opencv.sh
-
-# virtualenv and virtualenvwrapper VARs
-# RUN mkvirtualenv cv -p python2
-
-# COPY	bashrc2 /root/.bashrc
-
-# RUN pip install numpy
-
-# WORKDIR $HOME/opencv-3.1.0/
-# RUN mkdir build
-# WORKDIR $HOME/opencv-3.1.0/build
-# RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
-#     -D CMAKE_INSTALL_PREFIX=/usr/local \
-#     -D INSTALL_PYTHON_EXAMPLES=ON \
-#     -D INSTALL_C_EXAMPLES=OFF \
-#     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules \
-#     -D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
-#     -D BUILD_EXAMPLES=ON ..
-
-# RUN make -j4
-
-# RUN make clean
-# RUN make
-
-# RUN make install
-# RUN ldconfig
-
-# WORKDIR $HOME/.virtualenvs/cv/lib/python2.7/site-packages/
-# RUN ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
-
 
 WORKDIR $HOME
 
 COPY	bashrc2 /root/.bashrc
 
+COPY pip_install.sh $HOME/pip_install.sh
+RUN	/bin/bash $HOME/pip_install.sh
+
+
 RUN rm -rf opencv-3.1.0 opencv_contrib-3.1.0 opencv.zip opencv_contrib.zip
+RUN rm -rf $HOME/build_opencv.sh
+RUN rm -rf $HOME/pip_install.sh
+
+EXPOSE 8888
+
 
