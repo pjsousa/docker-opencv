@@ -45,4 +45,10 @@ RUN rm -rf $HOME/pip_install.sh
 
 EXPOSE 8888
 
+#Load jupyter config and create ssl certificates
+RUN mkdir -p $HOME/.jupyter
+COPY jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
 
+RUN openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -keyout ~/.jupyter/selfcert.key  -out ~/.jupyter/selfcert.cert
