@@ -46,6 +46,7 @@ RUN rm -rf $HOME/pip_install.sh
 EXPOSE 8888
 
 #Load jupyter config and create ssl certificates
+RUN mkdir -p $HOME/jupyterdata
 RUN mkdir -p $HOME/.jupyter
 COPY jupyter_notebook_config.py $HOME/.jupyter/jupyter_notebook_config.py
 
