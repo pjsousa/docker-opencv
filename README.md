@@ -9,4 +9,4 @@ To use a vanilla container with just the environment do:
 docker run -it pjsousa/docker-opencv
 ```
 
-To use this as a jupyter notebook server you can use [this other image](https://github.com/pjsousa/docker-jupyteropencv)
+To use this as a jupyter notebook server you can use [this other image](https://hub.docker.com/r/pjsousa/docker-jupyteropencv/)
