@@ -16,9 +16,9 @@ RUN apt-get install -y python2.7-dev python3.5-dev
 RUN apt-get install -y wget zip
 
 WORKDIR $HOME
-RUN wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
+RUN wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.3.0.zip
 RUN unzip opencv.zip
-RUN wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+RUN wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.3.0.zip
 RUN unzip opencv_contrib.zip
 
 RUN wget https://bootstrap.pypa.io/get-pip.py
