@@ -29,7 +29,7 @@ COPY bashrc1 /root/.bashrc
 COPY build_opencv.sh $HOME/build_opencv.sh
 COPY pip_install.sh $HOME/pip_install.sh
 
-RUN mkdir $HOME/opencv-3.1.0/build
+RUN mkdir $HOME/opencv-3.3.0/build
 
 RUN	/bin/bash $HOME/build_opencv.sh
 RUN	/bin/bash $HOME/pip_install.sh
@@ -39,7 +39,7 @@ WORKDIR $HOME
 COPY	bashrc2 /root/.bashrc
 
 RUN rm -rf $HOME/get-pip.py $HOME/.cache/pip
-RUN rm -rf opencv-3.1.0 opencv_contrib-3.1.0 opencv.zip opencv_contrib.zip
+RUN rm -rf opencv-3.3.0 opencv_contrib-3.3.0 opencv.zip opencv_contrib.zip
 RUN rm -rf $HOME/build_opencv.sh
 RUN rm -rf $HOME/pip_install.sh
 
