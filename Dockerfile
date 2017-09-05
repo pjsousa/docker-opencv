@@ -15,7 +15,7 @@ RUN apt-get install -y build-essential cmake pkg-config\
                      libgtk-3-dev libx11-dev libboost-python-dev\
                      libatlas-base-dev gfortran\
                      python2.7-dev python3.5-dev\
-                     wget zip\
+                     wget zip
 
 
 # Fetch OpenCV repos
