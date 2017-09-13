@@ -46,18 +46,8 @@ COPY  bashrc2 /root/.bashrc
 
 
 #Build DLIB
-RUN wget http://dlib.net/files/dlib-19.4.tar.bz2
-RUN tar xvf dlib-19.4.tar.bz2
-WORKDIR $HOME/dlib-19.4/
-RUN mkdir -p $HOME/build
-WORKDIR $HOME/dlib-19.4/build
-RUN cmake ..
-RUN cmake --build . --config Release
-RUN make install
-RUN ldconfig
-WORKDIR $HOME/dlib-19.4/
-RUN pkg-config --libs --cflags dlib-1
-RUN pip install dlib
+COPY dlib_install.sh $HOME/dlib_install.sh
+RUN /bin/bash $HOME/dlib_install.sh
 
 WORKDIR $HOME
 
@@ -65,7 +55,7 @@ RUN rm -rf $HOME/get-pip.py $HOME/.cache/pip\
            $HOME/opencv-3.3.0 $HOME/opencv_contrib-3.3.0\
            $HOME/opencv.zip $HOME/opencv_contrib.zip\
            $HOME/dlib-19.4\
-           $HOME/build_opencv.sh $HOME/pip_install.sh
+           $HOME/build_opencv.sh $HOME/pip_install.sh $HOME/dlib_install.sh
 
 EXPOSE 8888
 
