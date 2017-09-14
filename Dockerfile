@@ -3,8 +3,8 @@ FROM  ubuntu:latest
 ENV HOME /root
 ENV WORKON_HOME $HOME/.virtualenvs
 
-RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get -y update
+RUN apt-get -y upgrade
 
 
 #Prerequisites
